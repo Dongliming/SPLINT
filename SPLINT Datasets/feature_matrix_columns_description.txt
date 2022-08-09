@@ -1,0 +1,37 @@
+The following is the descriptions of collected features(a1 to a27) of SPLINT:
+
+a1: the developers for issue I
+a2: the committer for commit C
+a3: 1 if the committer is in the list of developers, 0 othewise
+a4: the commit time of commit C minus the creation time of issue I
+a5: the commit time of commit C minus the resolution time of issue I
+a6: 1 if a4 and a5 >= 0, 0 otherwise
+a7: |a5| < e, and e is the median of |a5| for each project
+a8: the commit time of commit C minus the commit time of commit Cp, and Cp is the largest commit time among Cprev which is the set of previous commits linked to issue I
+a9: the overlap ratio of commit C and commit Cp
+a10: the committer of commit Cp
+a11: the commit time of commit Cn minus the commit time of commit C, and Cn is the smallest commit time among Cnext which is the set of subsequent commits linked to issue I
+a12: the overlap ratio of commit C and commit Cn
+a13: the committer of commit Cn
+a14: the number of the set of exsiting issues at time when commit C was committed
+a15: the number of the developers of these exsiting issues at time when commit C was committed
+a16: the number if links to this issue before commit C
+a17: the textual similarity between the description of issue I and the message of commit C caculated by using VSM
+a18: the textual similarity between the description of issue I and the message of commit C caculated by using VSM-2grams
+a19: the textual similarity between the description of issue I and the message of commit C caculated by using LSI
+a20: the textual similarity between the description of issue I and the message of commit C caculated by using JS
+a21: the textual similarity between the description of issue I and the message of commit C caculated by using LDA
+a22: the textual similarity between the description of issue I and the message of commit C caculated by using NMF
+a23: the textual similarity between the description of issue I and the message of commit C caculated by using VSM+LDA*
+a24: the textual similarity between the description of issue I and the message of commit C caculated by using JS+LDA*
+a25: the textual similarity between the description of issue I and the message of commit C caculated by using VSM+NMF*
+a26: the textual similarity between the description of issue I and the message of commit C caculated by using JS+NMF*
+a27: the textual similarity between the description of issue I and the message of commit C caculated by using VSM+JS*
+commit_hash: the unique id of commit C
+issue_id: the unique id of issue I
+issue_created: the creation time of issue I
+is_linked: whether or not there is a link between commit C and issue I
+
+*When calculating the combined text similarity, we use the following formula, SIMcomb(x,y) = lamada * SIMmi(x,y) + (1-lamada) * SIMmj(x,y),
+where lamada = 0.5.[1]
+[1] M. Gethers, R. Oliveto, D. Poshyvanyk, and A. D. Lucia. 2011. On integrating orthogonal information retrieval methods to improve traceability recovery. In Proceedings of the International Conference on Software Maintenance (ICSM’11).133–142.
