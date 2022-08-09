@@ -1,0 +1,5 @@
+imbalanced_learn==0.8.0
+scipy==1.5.4
+jieba==0.42.1
+imblearn==0.0
+scikit_learn==0.24.2
